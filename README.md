@@ -3,14 +3,10 @@
 # pipe-kardex-beckend
 
 Dependency:
-Spring Boot
-DB H2
-JUnit
-Mock 
+Spring Boot,DB H2,JUnit, Mock 
 
 Enviroment:
-IDE SpringToolSuite4
-Postman
+IDE, SpringToolSuite4, Postman
 
 # kardex-solution 
 
