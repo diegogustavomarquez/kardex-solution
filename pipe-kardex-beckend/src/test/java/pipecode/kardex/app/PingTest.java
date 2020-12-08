@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package pipecode.kardex.app;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+
+/**
+ * @author diegogustavomarquez
+ *
+ */
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class PingTest {
+
+	@LocalServerPort
+	private int port;
+
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@Test
+	public void greetingShouldReturnDefaultMessage() throws Exception {
+		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/category/ping", String.class))
+				.contains("OK");
+
+		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/product/ping", String.class))
+				.contains("OK");
+
+		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/movement/ping", String.class))
+				.contains("OK");
+	}
+
+}

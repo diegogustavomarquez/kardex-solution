@@ -1,0 +1,54 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/product">volver</button>
+
+        <form>
+
+            <div class="form-group">
+                <label for="category">Categoría</label>
+                <select class="form-control" name="category" id="category" [(ngModel)]="modelCategory">
+                    <option>Elija una opción</option>
+                    <option *ngFor="let item of listOfCategory" [ngValue]="item.id">
+                        {{item.name}}
+                    </option>
+                </select>
+                <div class="alert alert-danger" *ngIf="error?.category">
+                    {{ error.category }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="code">Código</label>
+                <input type="text" name="code" class="form-control" id="code" [(ngModel)]="model.code">
+                <div class="alert alert-danger" *ngIf="error?.code">
+                    {{ error.code }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="model.name">
+                <div class="alert alert-danger" *ngIf="error?.name">
+                    {{ error.name }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div *ngIf="model.id == null">
+                    <label for="count">Cantidad</label>
+                    <input type="number" name="count" class="form-control" id="count" [(ngModel)]="count" min="0"> 
+                    <div class="alert alert-danger" *ngIf="error?.count">
+                        {{ error.count }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? update(): create()">
+                    {{ model.id? 'Editar': 'Crear' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

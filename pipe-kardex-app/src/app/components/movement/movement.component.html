@@ -1,0 +1,44 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <div class="alert alert-info" *ngIf="lista?.length==0">
+            No hay Movimientos en el sistema.
+        </div>
+        <table class="table table-hover table-striped" *ngIf="lista?.length>0">
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                    <th>Código Producto</th>
+                    <th>Producto</th>
+                    <th>Acción</th>
+                    <th>Cantidad de Producto</th>
+                    <th>Cantidad modificada </th>
+                    <th>Creado en</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movement of lista">
+                    <td>{{movement.category}}</td>
+                    <td class="text-center" >{{movement.productCode}}</td>
+                    <td>{{movement.productName}}</td>
+                    <td>{{getTipo(movement.type)}}</td>
+                    <td class="text-center">{{movement.count}}</td>
+                    <td class="text-center">{{movement.differenceAmount}}</td>
+                    <td>{{movement.createAt | date: 'dd/MM/yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="totalRegistros"
+              [pageSize]="totalPorPagina"
+              [pageIndex]="paginaActual"
+              [pageSizeOptions]="pageSizeOptions"
+              (page) ="paginar($event)"
+              showFirstLastButtons
+              class="float-left mx-2">
+            </mat-paginator>
+       </div>
+  </div>
+  
+
+
+
