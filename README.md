@@ -11,7 +11,7 @@ Spring Boot,DB H2,JUnit, Mock
 Enviroment:
 IDE, SpringToolSuite4, Postman
 
-# kardex-solution 
+# pipe-kardex-app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
