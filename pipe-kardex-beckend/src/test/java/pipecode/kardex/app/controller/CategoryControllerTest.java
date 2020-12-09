@@ -127,7 +127,7 @@ public class CategoryControllerTest {
 
 		when(service.findAll()).thenReturn(list);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_CATEGORY).accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get(API_CATEGORY + "/list").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].name").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].createAt").exists())
@@ -157,7 +157,7 @@ public class CategoryControllerTest {
 
 		Pageable pageable = PageRequest.of(0, 10);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_CATEGORY + "/page")
+		mockMvc.perform(MockMvcRequestBuilders.get(API_CATEGORY + "/list/page")
 				.content(new ObjectMapper().writeValueAsString(pageable)).contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.content").exists())

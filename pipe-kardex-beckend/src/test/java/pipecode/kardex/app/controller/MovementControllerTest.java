@@ -94,7 +94,7 @@ public class MovementControllerTest {
 
 		when(service.findAll()).thenReturn(list);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_MOVEMENT).accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get(API_MOVEMENT + "/list").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].productCode").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].productName").exists())
@@ -141,7 +141,7 @@ public class MovementControllerTest {
 
 		Pageable pageable = PageRequest.of(0, 10);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_MOVEMENT + "/page")
+		mockMvc.perform(MockMvcRequestBuilders.get(API_MOVEMENT + "/list/page")
 				.content(new ObjectMapper().writeValueAsString(pageable)).contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.content").exists())

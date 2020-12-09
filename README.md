@@ -2,6 +2,8 @@
 
 # pipe-kardex-beckend
 
+https://kardex-solution.herokuapp.com/api/product/
+
 Dependency:
 Spring Boot,DB H2,JUnit, Mock 
 

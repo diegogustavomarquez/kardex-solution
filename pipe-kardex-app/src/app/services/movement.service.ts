@@ -22,6 +22,6 @@ export class MovementService extends CommonService<Movement> {
     .set('page', page)
     .set('size', size)
     .set('sort', 'id,desc');
-    return this.http.get<any>(`${this.baseEndpoint}/page`, {params: params});
+    return this.http.get<any>(`${this.baseEndpoint}/list/page`, {params: params});
   }
 }

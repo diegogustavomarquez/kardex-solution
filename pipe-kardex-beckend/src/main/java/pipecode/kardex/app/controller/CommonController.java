@@ -39,7 +39,7 @@ public abstract class CommonController<E, S extends CommonService<E>> {
 		return ResponseEntity.ok().body("OK");
 	}
 
-	@GetMapping
+	@GetMapping("/list")
 	public ResponseEntity<?> list() {
 		LOGGER.info("init GET {}", getApiName());
 		try {
@@ -53,7 +53,7 @@ public abstract class CommonController<E, S extends CommonService<E>> {
 
 	}
 
-	@GetMapping("/page")
+	@GetMapping("/list/page")
 	public ResponseEntity<?> listPageable(Pageable pageable) {
 		LOGGER.info("init GET {}/page", getApiName());
 		try {

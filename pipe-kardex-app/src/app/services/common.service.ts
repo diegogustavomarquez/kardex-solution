@@ -11,14 +11,14 @@ export abstract class CommonService<E extends Generic> {
   constructor(protected http: HttpClient) { }
 
   public list(): Observable<E[]>{
-    return this.http.get<E[]>(this.baseEndpoint);
+    return this.http.get<E[]>(`${this.baseEndpoint}/list`);
   }
 
   public listPage(page: string, size: string): Observable<any>{
     const params = new HttpParams()
     .set('page', page)
     .set('size', size);
-    return this.http.get<any>(`${this.baseEndpoint}/page`, {params: params});
+    return this.http.get<any>(`${this.baseEndpoint}/list/page`, {params: params});
   }
 
   public view(id: number): Observable<E>{

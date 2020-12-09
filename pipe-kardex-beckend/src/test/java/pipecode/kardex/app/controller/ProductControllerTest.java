@@ -174,7 +174,7 @@ public class ProductControllerTest {
 
 		when(service.findAll()).thenReturn(list);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_PRODUCT).accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.get(API_PRODUCT + "/list").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(MockMvcResultMatchers.jsonPath("$[0].id").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].name").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$[0].code").exists())
@@ -221,7 +221,7 @@ public class ProductControllerTest {
 
 		Pageable pageable = PageRequest.of(0, 10);
 
-		mockMvc.perform(MockMvcRequestBuilders.get(API_PRODUCT + "/page")
+		mockMvc.perform(MockMvcRequestBuilders.get(API_PRODUCT + "/list/page")
 				.content(new ObjectMapper().writeValueAsString(pageable)).contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.content").exists())
