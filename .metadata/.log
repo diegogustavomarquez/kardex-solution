@@ -1070,3 +1070,45 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:09:25.948
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.RhfEYNWA => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:05.629
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:05.630
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@272ee84a[org.springframework.tooling.boot.ls:1.23.0.202010230633(id=1080)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:05.630
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.158
+!MESSAGE Boot LS startup time from start to initialized: 1528ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.219
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.WrtkaEiQisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.219
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.219
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.219
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.220
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.WrtkaEiQ => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.220
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.224
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.227
+!MESSAGE buffering callback sts4.classpath.WrtkaEiQ pipe-kardex-beckend false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.227
+!MESSAGE executing callback sts4.classpath.WrtkaEiQ 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-12-09 01:20:07.250
+!MESSAGE executing callback sts4.classpath.WrtkaEiQ SUCCESS [done]

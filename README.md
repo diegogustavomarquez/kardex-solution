@@ -2,9 +2,10 @@
 
 # pipe-kardex-beckend
 
-https://kardex-solution.herokuapp.com/api/product/
+API Documentation
+https://documenter.getpostman.com/view/5563814/TVmS9GHh
 
-Dependency:
+Maven Dependency:
 Spring Boot,DB H2,JUnit, Mock 
 
 Enviroment:
