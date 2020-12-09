@@ -58,7 +58,8 @@ export class ProductFormComponent extends CommonFormComponent<Product, ProductSe
       if(this.count != null && this.count < 0){
         Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a cero', 'error');
         return;
-      }      
+      }
+      this.model.count = this.count;
       this.model.category = this.listOfCategory.filter(p => p.id == this.modelCategory)[0];
       this.service.create(this.model).subscribe(m => {
         console.log(m);

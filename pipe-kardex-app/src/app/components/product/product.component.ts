@@ -15,42 +15,42 @@ export class ProductComponent extends CommonListarComponent<Product, ProductServ
     super(service);
     this.titulo = 'Listado de Productos';
     this.nombreModel = Product.name;
-   }
+  }
 
-   public increase(e: Product) {
-      Swal.fire({
-        title: 'Agregar Productos',
-        text: `¿Cuantos productos desea agregar a ${e.name} ?`,
-        icon: 'question',
-        input: 'number',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, agregar!'
-      }).then((result) => {
+  public increase(e: Product) {
+    Swal.fire({
+      title: 'Agregar Productos',
+      text: `¿Cuantos productos desea agregar a ${e.name} ?`,
+      icon: 'question',
+      input: 'number',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, agregar!'
+    }).then((result) => {
+      if (result.value) {
         let num: number = Number(result.value);
-        if(!Number.isInteger(num)){
+        if (!Number.isInteger(num)) {
           Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
           return;
         }
-        if(num < 1){
+        if (num < 1) {
           Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
           return;
-        } 
-
+        }
         this.service.increase(e, num).subscribe(
           p => {
-          this.lista = this.lista.map((e) => {
-              return e.id == p.id ? p : e 
-            } 
-          )
-          Swal.fire('Agregado:', `${this.nombreModel} ${e.name} agregado con éxito`, 'success');
-        });
-      
-      });
+            this.lista = this.lista.map((e) => {
+              return e.id == p.id ? p : e
+            }
+            )
+            Swal.fire('Agregado:', `${this.nombreModel} ${e.name} agregado con éxito`, 'success');
+          });
+      }
+    });
   }
 
-  public decrease(e : Product) {
+  public decrease(e: Product) {
     Swal.fire({
       title: 'Retirar Productos',
       text: `¿Cuantos productos desea retirar a ${e.name} ?`,
@@ -61,36 +61,36 @@ export class ProductComponent extends CommonListarComponent<Product, ProductServ
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, retirar!'
     }).then((result) => {
-
-      let num: number = Number(result.value);
-      if(!Number.isInteger(num)){
-        Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
-        return;
-      }
-      if(num < 1){
-        Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
-        return;
-      }
-
-      if(e.count - num < 0){
-        Swal.fire('Error:', `${this.nombreModel} ${e.name} no se puede retirar más de ${e.count}`, 'error');
-        return;
-      }
-
-      this.service.decrease(e, Number(result.value)).subscribe(
-        p => {
-        this.lista = this.lista.map((e) => {
-            return e.id == p.id ? p : e 
-          } 
-        )
-        Swal.fire('Retirado:', `${this.nombreModel} ${e.name} retirado con éxito`, 'success');
-      }, err => {
-        if(err.status === 1000){
-          Swal.fire('Retirado:', `${this.nombreModel} ${e.name} no se pudo retirar porque ya no cuentas con stock`, 'error');
+      if (result.value) {
+        let num: number = Number(result.value);
+        if (!Number.isInteger(num)) {
+          Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
+          return;
         }
-      });
-    
-    });  
+        if (num < 1) {
+          Swal.fire('Error:', 'Solo se permite números enteros mayores o iguales a 1', 'error');
+          return;
+        }
+
+        if (e.count - num < 0) {
+          Swal.fire('Error:', `${this.nombreModel} ${e.name} no se puede retirar más de ${e.count}`, 'error');
+          return;
+        }
+
+        this.service.decrease(e, Number(result.value)).subscribe(
+          p => {
+            this.lista = this.lista.map((e) => {
+              return e.id == p.id ? p : e
+            }
+            )
+            Swal.fire('Retirado:', `${this.nombreModel} ${e.name} retirado con éxito`, 'success');
+          }, err => {
+            if (err.status === 1000) {
+              Swal.fire('Retirado:', `${this.nombreModel} ${e.name} no se pudo retirar porque ya no cuentas con stock`, 'error');
+            }
+          });
+      }
+    });
   }
 
 }
